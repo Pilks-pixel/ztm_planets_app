@@ -1,0 +1,29 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --watch --experimental-strip-types server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check-types": "tsc",
+    "format": "prettier --write \"**/*.+(.js|ts|json)\"",
+    "lint": "eslint .",
+    "validate": "npm run check-types && npm run lint && npm run format"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "eslint": "^9.21.0",
+    "globals": "^16.0.0",
+    "prettier": "^3.5.2",
+    "ts-node": "^10.9.2",
+    "typescript-eslint": "^8.24.1"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

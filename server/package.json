@@ -1,10 +1,10 @@
 {
-  "name": "server",
+  "name": "Nasa project server",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A server for NASA project API",
+  "main": "src/server.ts",
   "scripts": {
-    "start": "node --watch --experimental-strip-types server.ts",
+    "start": "node --watch --experimental-strip-types src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "check-types": "tsc",
     "format": "prettier --write \"**/*.+(.js|ts|json)\"",
@@ -17,6 +17,7 @@
   "type": "module",
   "devDependencies": {
     "@eslint/js": "^9.21.0",
+    "@types/express": "^5.0.0",
     "eslint": "^9.21.0",
     "globals": "^16.0.0",
     "lint-staged": "^15.4.3",

@@ -4,6 +4,7 @@
     "baseUrl": ".",
     "allowImportingTsExtensions": true,
     "module": "es2020",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true
   }
 }

@@ -1,6 +1,13 @@
 import { createReadStream } from "node:fs";
+import path from "node:path";
 import { parse } from "csv-parse";
 
+var csvFilePath = path.join(
+  import.meta.dirname,
+  "..",
+  "data",
+  "kepler-data.csv",
+);
 var planets: Planet[] = [];
 var parser = parse({
   comment: "#",
@@ -14,7 +21,7 @@ type Planet = {
   koi_prad: number;
 };
 
-createReadStream("./kepler-data.csv").pipe(parser);
+createReadStream(csvFilePath).pipe(parser);
 
 parser.on("data", (data: Planet) => {
   if (isHabitablePlanet(data)) {

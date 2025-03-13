@@ -1,4 +1,4 @@
-import planets from "../../model/planets.ts";
+import { planets } from "../../model/planets.ts";
 
 console.log("all planets", planets);
 function getAllPlanets(req, res) {

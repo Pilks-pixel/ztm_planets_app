@@ -14,28 +14,32 @@ var parser = parse({
   columns: true,
 });
 
-type Planet = {
-  kepoi_name: string;
-  koi_disposition: string;
-  koi_insol: number;
-  koi_prad: number;
-};
+// Function definitions
+function loadPlanetsData(): Promise<void> {
+  return new Promise<void>((resolve, reject) => {
+    createReadStream(csvFilePath).pipe(parser);
 
-createReadStream(csvFilePath).pipe(parser);
+    parser.on("data", (data: Planet) => {
+      if (isHabitablePlanet(data)) {
+        planets.push(data);
+      }
+    });
 
-parser.on("data", (data: Planet) => {
-  if (isHabitablePlanet(data)) {
-    planets.push(data);
-  }
-});
+    parser.on("error", err => {
+      console.error("Error parsing CSV:", err);
+      reject(err);
+    });
 
-parser.on("error", err => {
-  console.error("Error parsing CSV:", err);
-});
-
-parser.on("end", () => {
-  console.log("Parsing completed:", planets);
-});
+    parser.on("end", () => {
+      console.log(
+        "Parsing completed:",
+        planets.length,
+        "habitable planets found.",
+      );
+      resolve();
+    });
+  });
+}
 
 function isHabitablePlanet(planet: Planet): boolean {
   return (
@@ -46,4 +50,12 @@ function isHabitablePlanet(planet: Planet): boolean {
   );
 }
 
-export default planets;
+// Type definitions
+type Planet = {
+  kepoi_name: string;
+  koi_disposition: string;
+  koi_insol: number;
+  koi_prad: number;
+};
+
+export { planets, loadPlanetsData };

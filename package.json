@@ -1,17 +1,23 @@
 {
-  "name": "planets_app",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "devDependencies": {
-    "husky": "^9.1.7"
-  }
+	"name": "planets_app",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"install-server": "npm install --prefix server",
+		"install-client": "npm install --prefix client",
+    "install": "npm run install-server && npm run install-client",
+		"server": "npm start --prefix server",
+		"client": "npm start --prefix client",
+		"dev": "npm run server & npm run client",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"prepare": "husky"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "commonjs",
+	"devDependencies": {
+		"husky": "^9.1.7"
+	}
 }

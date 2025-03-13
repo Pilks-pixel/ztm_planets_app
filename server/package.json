@@ -1,5 +1,5 @@
 {
-  "name": "Nasa project server",
+  "name": "nasa-project-server",
   "version": "1.0.0",
   "description": "A server for NASA project API",
   "main": "src/server.ts",

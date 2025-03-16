@@ -11,6 +11,6 @@ export default [
   ...tseslint.configs.recommended,
   { rules: { "no-var": "off" } },
   {
-    ignores: ["./public"],
+    ignores: ["**/public"],
   },
 ];

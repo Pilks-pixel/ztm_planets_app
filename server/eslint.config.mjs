@@ -10,4 +10,7 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   { rules: { "no-var": "off" } },
+  {
+    ignores: ["./public"],
+  },
 ];

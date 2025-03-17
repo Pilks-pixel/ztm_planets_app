@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import path from "node:path";
+import morgan from "morgan";
 
 import planetRouter from "./routes/planets/planets.router.ts";
 
@@ -10,6 +11,7 @@ var corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.use(morgan("combined"));
 app.use(express.json());
 app.use(express.static(path.join(import.meta.dirname, "..", "public")));
 

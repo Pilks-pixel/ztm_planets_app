@@ -24,3 +24,5 @@ type Launch = {
   upcoming: boolean;
   success: boolean;
 };
+
+export { launches };

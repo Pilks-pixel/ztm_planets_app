@@ -4,6 +4,7 @@ import path from "node:path";
 import morgan from "morgan";
 
 import planetRouter from "./routes/planets/planets.router.ts";
+import launchesRouter from "./routes/launches/launches.router.ts";
 
 var app = express();
 var corsOptions = {
@@ -20,5 +21,6 @@ app.get("/", function (req, res) {
 });
 
 app.use("/planets", planetRouter);
+app.use("/launches", launchesRouter);
 
 export default app;

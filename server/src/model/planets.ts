@@ -50,6 +50,10 @@ function isHabitablePlanet(planet: Planet): boolean {
   );
 }
 
+function getAllPlanets(): Planet[] {
+  return planets;
+}
+
 // Type definitions
 type Planet = {
   kepoi_name: string;
@@ -58,4 +62,4 @@ type Planet = {
   koi_prad: number;
 };
 
-export { planets, loadPlanetsData };
+export { getAllPlanets, loadPlanetsData };

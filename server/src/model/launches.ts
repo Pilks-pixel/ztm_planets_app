@@ -13,6 +13,11 @@ var launch: Launch = {
 
 launches.set(launch.flightNumber, launch);
 
+// Function definitions
+function getAllLaunches(): Launch[] {
+  return Array.from(launches.values());
+}
+
 // Type definitions
 type Launch = {
   flightNumber: number;
@@ -25,4 +30,4 @@ type Launch = {
   success: boolean;
 };
 
-export { launches };
+export { getAllLaunches };

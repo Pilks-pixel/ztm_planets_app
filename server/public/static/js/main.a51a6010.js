@@ -1,4 +1,4 @@
-/*! For license information please see main.3c87d425.js.LICENSE.txt */
+/*! For license information please see main.a51a6010.js.LICENSE.txt */
 !(function () {
   var e = {
       5318: function (e) {
@@ -28616,10 +28616,25 @@
       function xe() {
         return (xe = me(
           ve().mark(function e() {
+            var t, n;
             return ve().wrap(function (e) {
               for (;;)
                 switch ((e.prev = e.next)) {
                   case 0:
+                    return (e.next = 2), fetch("".concat(ge, "/launches"));
+                  case 2:
+                    return (t = e.sent), (e.next = 5), t.json();
+                  case 5:
+                    return (
+                      (n = e.sent),
+                      e.abrupt(
+                        "return",
+                        n.sort(function (e, t) {
+                          return e.flightNumber - t.flightNumber;
+                        }),
+                      )
+                    );
+                  case 7:
                   case "end":
                     return e.stop();
                 }
@@ -29500,4 +29515,4 @@
       t.render((0, Ne.jsx)(Xe, {}), document.getElementById("root"));
     })();
 })();
-//# sourceMappingURL=main.3c87d425.js.map
+//# sourceMappingURL=main.a51a6010.js.map

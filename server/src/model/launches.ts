@@ -1,7 +1,8 @@
 var launches: Map<number | string, Launch> = new Map();
+var latestFlightNumber = 100;
 
 var launch: Launch = {
-  flightNumber: 100,
+  flightNumber: latestFlightNumber,
   mission: "Kepler Exploration X",
   rocket: "Explorer IS1",
   launchDate: new Date("December 27, 2030"),
@@ -18,6 +19,19 @@ function getAllLaunches(): Launch[] {
   return Array.from(launches.values());
 }
 
+function addNewLaunch(launch: Launch): void {
+  latestFlightNumber++;
+  launches.set(
+    latestFlightNumber,
+    Object.assign(launch, {
+      flightNumber: latestFlightNumber,
+      customer: ["ZTM", "NASA"],
+      upcoming: true,
+      success: true,
+    }),
+  );
+}
+
 // Type definitions
 type Launch = {
   flightNumber: number;
@@ -30,4 +44,5 @@ type Launch = {
   success: boolean;
 };
 
-export { getAllLaunches };
+export type { Launch };
+export { getAllLaunches, addNewLaunch };

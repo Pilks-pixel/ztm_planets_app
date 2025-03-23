@@ -16,11 +16,11 @@ app.use(morgan("combined"));
 app.use(express.json());
 app.use(express.static(path.join(import.meta.dirname, "..", "public")));
 
-app.get("/", function (req, res) {
-  res.sendFile(path.join(import.meta.dirname, "..", "public", "index.html"));
-});
-
 app.use("/planets", planetRouter);
 app.use("/launches", launchesRouter);
+
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(import.meta.dirname, "..", "public", "index.html"));
+});
 
 export default app;

@@ -1,4 +1,8 @@
-import { getAllLaunches, addNewLaunch } from "../../model/launches.ts";
+import {
+  getAllLaunches,
+  addNewLaunch,
+  abortLaunch,
+} from "../../model/launches.ts";
 import type { Launch } from "../../model/launches.ts";
 
 function httpGetAllLaunches(req, res) {
@@ -32,4 +36,16 @@ function httpAddNewLaunch(req, res) {
   return res.status(201).json(launch);
 }
 
-export { httpGetAllLaunches, httpAddNewLaunch };
+function httpAbortLaunch(req, res) {
+  const launchId = Number(req.params.id);
+  if (!launchId) {
+    return res.status(400).json({ error: "Invalid launch id" });
+  }
+
+  if (abortLaunch(launchId)) {
+    return res.status(200).json({ message: "Launch aborted successfully" });
+  }
+  return res.status(404).json({ error: "Launch not found" });
+}
+
+export { httpGetAllLaunches, httpAddNewLaunch, httpAbortLaunch };

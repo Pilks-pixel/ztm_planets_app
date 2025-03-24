@@ -32,6 +32,15 @@ function addNewLaunch(launch: Launch): void {
   );
 }
 
+function abortLaunch(id: number): boolean {
+  const aborted = launches.get(id);
+  if (aborted) {
+    launches.delete(id);
+    return true;
+  }
+  return false;
+}
+
 // Type definitions
 type Launch = {
   flightNumber: number;
@@ -45,4 +54,4 @@ type Launch = {
 };
 
 export type { Launch };
-export { getAllLaunches, addNewLaunch };
+export { getAllLaunches, addNewLaunch, abortLaunch };

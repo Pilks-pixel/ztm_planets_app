@@ -1,4 +1,4 @@
-/*! For license information please see main.a51a6010.js.LICENSE.txt */
+/*! For license information please see main.2fda5667.js.LICENSE.txt */
 !(function () {
   var e = {
       5318: function (e) {
@@ -28648,14 +28648,37 @@
       function Se() {
         return (Se = me(
           ve().mark(function e(t) {
-            return ve().wrap(function (e) {
-              for (;;)
-                switch ((e.prev = e.next)) {
-                  case 0:
-                  case "end":
-                    return e.stop();
-                }
-            }, e);
+            return ve().wrap(
+              function (e) {
+                for (;;)
+                  switch ((e.prev = e.next)) {
+                    case 0:
+                      return (
+                        (e.prev = 0),
+                        (e.next = 3),
+                        fetch("".concat(ge, "/launches"), {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify(t),
+                        })
+                      );
+                    case 3:
+                      return e.abrupt("return", e.sent);
+                    case 6:
+                      return (
+                        (e.prev = 6),
+                        (e.t0 = e.catch(0)),
+                        e.abrupt("return", { ok: !1 })
+                      );
+                    case 9:
+                    case "end":
+                      return e.stop();
+                  }
+              },
+              e,
+              null,
+              [[0, 6]],
+            );
           }),
         )).apply(this, arguments);
       }
@@ -28716,61 +28739,67 @@
           i = o[1],
           l = pe((0, e.useState)(!1), 2),
           u = l[0],
-          s =
-            (l[1],
-            (0, e.useCallback)(
-              me(
-                ve().mark(function e() {
-                  var t;
-                  return ve().wrap(function (e) {
-                    for (;;)
-                      switch ((e.prev = e.next)) {
-                        case 0:
-                          return (e.next = 2), we();
-                        case 2:
-                          (t = e.sent), i(t);
-                        case 4:
-                        case "end":
-                          return e.stop();
-                      }
-                  }, e);
-                }),
-              ),
-              [],
-            ));
+          s = l[1],
+          c = (0, e.useCallback)(
+            me(
+              ve().mark(function e() {
+                var t;
+                return ve().wrap(function (e) {
+                  for (;;)
+                    switch ((e.prev = e.next)) {
+                      case 0:
+                        return (e.next = 2), we();
+                      case 2:
+                        (t = e.sent), i(t);
+                      case 4:
+                      case "end":
+                        return e.stop();
+                    }
+                }, e);
+              }),
+            ),
+            [],
+          );
         (0, e.useEffect)(
           function () {
-            s();
+            c();
           },
-          [s],
+          [c],
         );
-        var c = (0, e.useCallback)(
+        var f = (0, e.useCallback)(
             (function () {
               var e = me(
-                ve().mark(function e(t) {
-                  var n, o, a, i, l;
+                ve().mark(function e(n) {
+                  var o, a, i, l, u, f;
                   return ve().wrap(function (e) {
                     for (;;)
                       switch ((e.prev = e.next)) {
                         case 0:
                           return (
-                            t.preventDefault(),
-                            (n = new FormData(t.target)),
-                            (o = new Date(n.get("launch-day"))),
-                            (a = n.get("mission-name")),
-                            (i = n.get("rocket-name")),
-                            (l = n.get("planets-selector")),
-                            (e.next = 8),
+                            n.preventDefault(),
+                            s(!0),
+                            (o = new FormData(n.target)),
+                            (a = new Date(o.get("launch-day"))),
+                            (i = o.get("mission-name")),
+                            (l = o.get("rocket-name")),
+                            (u = o.get("planets-selector")),
+                            (e.next = 9),
                             ke({
-                              launchDate: o,
-                              mission: a,
-                              rocket: i,
-                              target: l,
+                              launchDate: a,
+                              mission: i,
+                              rocket: l,
+                              target: u,
                             })
                           );
-                        case 8:
-                          e.sent, !1, r();
-                        case 11:
+                        case 9:
+                          (f = e.sent),
+                            f.ok
+                              ? (c(),
+                                setTimeout(function () {
+                                  s(!1), t();
+                                }, 800))
+                              : r();
+                        case 12:
                         case "end":
                           return e.stop();
                       }
@@ -28781,9 +28810,9 @@
                 return e.apply(this, arguments);
               };
             })(),
-            [s, t, r],
+            [c, t, r],
           ),
-          f = (0, e.useCallback)(
+          d = (0, e.useCallback)(
             (function () {
               var e = me(
                 ve().mark(function e(t) {
@@ -28805,13 +28834,13 @@
                 return e.apply(this, arguments);
               };
             })(),
-            [s, n, r],
+            [c, n, r],
           );
         return {
           launches: a,
           isPendingLaunch: u,
-          submitLaunch: c,
-          abortLaunch: f,
+          submitLaunch: f,
+          abortLaunch: d,
         };
       };
       function Te(e, t, n) {
@@ -29515,4 +29544,4 @@
       t.render((0, Ne.jsx)(Xe, {}), document.getElementById("root"));
     })();
 })();
-//# sourceMappingURL=main.a51a6010.js.map
+//# sourceMappingURL=main.2fda5667.js.map

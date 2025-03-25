@@ -32,13 +32,19 @@ function addNewLaunch(launch: Launch): void {
   );
 }
 
-function abortLaunch(id: number): boolean {
+function abortLaunchById(id: number): Launch | boolean {
   const aborted = launches.get(id);
   if (aborted) {
-    launches.delete(id);
-    return true;
+    aborted.upcoming = false;
+    aborted.success = false;
+    return aborted;
   }
+
   return false;
+}
+
+function existsLaunchWithId(id: number): boolean {
+  return launches.has(id);
 }
 
 // Type definitions
@@ -54,4 +60,4 @@ type Launch = {
 };
 
 export type { Launch };
-export { getAllLaunches, addNewLaunch, abortLaunch };
+export { getAllLaunches, addNewLaunch, abortLaunchById, existsLaunchWithId };

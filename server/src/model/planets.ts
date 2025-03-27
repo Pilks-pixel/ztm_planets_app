@@ -1,13 +1,11 @@
 import { createReadStream } from "node:fs";
-import path from "node:path";
 import { parse } from "csv-parse";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
 
-var csvFilePath = path.join(
-  import.meta.dirname,
-  "..",
-  "data",
-  "kepler-data.csv",
-);
+var __filename = fileURLToPath(import.meta.url);
+var __dirname = dirname(__filename);
+var csvFilePath = join(__dirname, "..", "data", "kepler-data.csv");
 var planets: Planet[] = [];
 var parser = parse({
   comment: "#",

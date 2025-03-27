@@ -10,8 +10,8 @@
 		"server": "npm start --prefix server",
 		"client": "npm start --prefix client",
 		"dev": "npm run server & npm run client",
-    "deploy": "npm run build --prefix client && npm run server",
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"deploy": "npm run build --prefix client && npm run server",
+		"test": "npm test --prefix server",
 		"prepare": "husky"
 	},
 	"keywords": [],

@@ -5,9 +5,7 @@ import app from "../../app.ts";
 describe("Test GET /launches", function () {
   test("It should respond with status 200", async function () {
     const response = await request(app).get("/launches");
-    console.log(response);
-    // const response = 200;
-    // expect(response).toBe(200);
+    expect(response.status).toBe(200);
   });
 });
 

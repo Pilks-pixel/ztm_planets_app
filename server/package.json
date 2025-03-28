@@ -16,40 +16,6 @@
   "author": "",
   "license": "ISC",
   "type": "module",
-  "jest": {
-    "preset": "ts-jest/presets/default-esm",
-    "moduleNameMapper": {
-      "^(\\.{1,2}/.*)\\.js$": "$1"
-    },
-    "transform": {
-      "^.+\\.tsx?$": [
-        "ts-jest",
-        {
-          "useESM": true,
-          "tsconfig": "tsconfig.json",
-          "diagnostics": {
-            "warnOnly": true
-          },
-          "astTransformers": {
-            "before": [
-              {
-                "path": "node_modules/ts-jest-mock-import-meta",
-                "options": {
-                  "metaObjectReplacement": {
-                    "url": "file:///Users/peterpilkington/Documents/code_practice/ztm_node/planets_app/server/src/model/planets.ts"
-                  }
-                }
-              }
-            ]
-          }
-        }
-      ]
-    },
-    "extensionsToTreatAsEsm": [
-      ".ts"
-    ],
-    "testEnvironment": "node"
-  },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
     "@types/express": "^5.0.0",

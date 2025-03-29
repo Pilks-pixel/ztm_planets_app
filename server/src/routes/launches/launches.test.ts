@@ -13,17 +13,31 @@ describe("Test GET /launches", function () {
 });
 
 describe("Test POST /launches", function () {
+  const launchDataWithoutDate = {
+    mission: "Super Star Destroyer",
+    rocket: "Falcon 1",
+    target: "Kepler-442 b",
+  };
+
+  const launchDataWithDate = {
+    mission: "Super Star Destroyer",
+    rocket: "Falcon 1",
+    launchDate: "2028-08-05",
+    target: "Kepler-442 b",
+  };
+
   test("It should respond with status 201 created", async function () {
-    await request(app)
+    const response = await request(app)
       .post("/launches")
-      .send({
-        mission: "Super Star Destroyer",
-        rocket: "Falcon 1",
-        launchDate: "2028-08-05",
-        target: "Kepler-442 b",
-      })
+      .send(launchDataWithDate)
       .expect("Content-Type", /json/)
       .expect(201);
+
+    const responseDate = new Date(response.body.launchDate).valueOf();
+    const requestDate = new Date(launchDataWithDate.launchDate).valueOf();
+
+    expect(responseDate).toBe(requestDate);
+    expect(response.body).toMatchObject(launchDataWithoutDate);
   });
   test("It should catch missing required properties", async function () {
     await request(app)

@@ -1,5 +1,5 @@
 import request from "supertest";
-// import { expect, jest, test } from "@jest/globals";
+import { expect, test } from "@jest/globals";
 
 import app from "../../app.ts";
 
@@ -26,6 +26,13 @@ describe("Test POST /launches", function () {
     target: "Kepler-442 b",
   };
 
+  const launchDataWithInvalidDate = {
+    mission: "Invalid date",
+    rocket: "Falcon 1",
+    launchDate: "2028-50-505",
+    target: "Kepler-442 b",
+  };
+
   test("It should respond with status 201 created", async function () {
     const response = await request(app)
       .post("/launches")
@@ -39,31 +46,28 @@ describe("Test POST /launches", function () {
     expect(responseDate).toBe(requestDate);
     expect(response.body).toMatchObject(launchDataWithoutDate);
   });
+
   test("It should catch missing required properties", async function () {
-    await request(app)
+    const response = await request(app)
       .post("/launches")
-      .send({
-        mission: "Missing target",
-        rocket: "Falcon 1",
-        launchDate: "2028-08-05",
-      })
+      .send(launchDataWithoutDate)
       .expect("Content-Type", /json/)
-      .expect(400, {
-        error: "Missing required launch property",
-      });
+      .expect(400);
+
+    expect(response.body).toStrictEqual({
+      error: "Missing required launch property",
+    });
   });
+
   test("It should catch invalid launch date", async function () {
-    await request(app)
+    const response = await request(app)
       .post("/launches")
-      .send({
-        mission: "Invalid date",
-        rocket: "Falcon 1",
-        launchDate: "2028-50-505",
-        target: "Kepler-442 b",
-      })
+      .send(launchDataWithInvalidDate)
       .expect("Content-Type", /json/)
-      .expect(400, {
-        error: "Invalid launch date",
-      });
+      .expect(400);
+
+    expect(response.body).toStrictEqual({
+      error: "Invalid launch date",
+    });
   });
 });

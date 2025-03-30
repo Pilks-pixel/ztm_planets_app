@@ -12,7 +12,9 @@ function httpGetAllLaunches(req, res) {
 
 function httpAddNewLaunch(req, res) {
   const launch: Launch = req.body;
-  launch.launchDate = new Date(launch.launchDate);
+  if (launch.launchDate) {
+    launch.launchDate = new Date(launch.launchDate);
+  }
 
   console.log(launch);
 

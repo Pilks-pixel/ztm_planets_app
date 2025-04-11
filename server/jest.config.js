@@ -18,9 +18,9 @@ export default {
             {
               path: "node_modules/ts-jest-mock-import-meta",
               options: {
-                metaObjectReplacement: {
-                  url: ({ fileName }) => `file://${fileName}`,
-                },
+                metaObjectReplacement: ({ fileName }) => ({
+                  url: fileName,
+                }),
               },
             },
           ],
@@ -30,4 +30,5 @@ export default {
   },
   extensionsToTreatAsEsm: [".ts"],
   testEnvironment: "node",
+  testPathIgnorePatterns: ["<rootDir>/dist/"],
 };

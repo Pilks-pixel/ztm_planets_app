@@ -1,13 +1,17 @@
 {
   "compilerOptions": {
-    "noEmit": true,
+    // "noEmit": true,
+    // "allowImportingTsExtensions": true,
     "baseUrl": ".",
-    "allowImportingTsExtensions": true,
+    "rewriteRelativeImportExtensions": true,
     "module": "es2020",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "target": "es2020",
     "declaration": true,
-    "esModuleInterop": true
-  }
+    "esModuleInterop": true,
+    "outDir": "dist"
+  },
+  "exclude": ["dist"],
+  "include": ["src/**/*"]
 }

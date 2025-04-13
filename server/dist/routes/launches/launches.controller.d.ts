@@ -1,4 +1,5 @@
-declare function httpGetAllLaunches(req: any, res: any): any;
-declare function httpAddNewLaunch(req: any, res: any): any;
-declare function httpAbortLaunch(req: any, res: any): any;
+import { Request, Response } from "express";
+declare function httpGetAllLaunches(req: Request, res: Response): void;
+declare function httpAddNewLaunch(req: Request, res: Response): void;
+declare function httpAbortLaunch(req: Request, res: Response): void;
 export { httpGetAllLaunches, httpAddNewLaunch, httpAbortLaunch };

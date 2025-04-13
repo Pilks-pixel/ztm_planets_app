@@ -6,10 +6,12 @@
     "rewriteRelativeImportExtensions": true,
     "module": "es2020",
     "moduleResolution": "node",
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "target": "es2020",
+    "strict": true,
+    "noImplicitAny": true,
     "declaration": true,
-    "esModuleInterop": true,
     "outDir": "dist"
   },
   "exclude": ["dist"],

@@ -1,4 +1,4 @@
-/*! For license information please see main.e8924ac3.js.LICENSE.txt */
+/*! For license information please see main.3b3cd32f.js.LICENSE.txt */
 !(function () {
   var e = {
       5318: function (e) {
@@ -28702,25 +28702,21 @@
                         })
                       );
                     case 3:
+                      return (n = e.sent), e.abrupt("return", { ok: n.ok });
+                    case 7:
                       return (
-                        (n = e.sent),
-                        console.log(n),
-                        e.abrupt("return", { ok: n.ok })
-                      );
-                    case 8:
-                      return (
-                        (e.prev = 8),
+                        (e.prev = 7),
                         (e.t0 = e.catch(0)),
                         e.abrupt("return", { ok: !1 })
                       );
-                    case 11:
+                    case 10:
                     case "end":
                       return e.stop();
                   }
               },
               e,
               null,
-              [[0, 8]],
+              [[0, 7]],
             );
           }),
         )).apply(this, arguments);
@@ -29571,4 +29567,4 @@
       t.render((0, Ne.jsx)(Xe, {}), document.getElementById("root"));
     })();
 })();
-//# sourceMappingURL=main.e8924ac3.js.map
+//# sourceMappingURL=main.3b3cd32f.js.map
